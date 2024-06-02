@@ -1,0 +1,61 @@
+/* Item.css */
+
+.item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    max-width: 200px; /* Cambiado a 200px para hacer los ítems menos anchos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-header {
+    margin-bottom: 8px;
+}
+.item-title {
+    font-size: 1em;
+    margin: 0;
+    color: #bbbaba;
+}
+
+.item-picture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.item-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item-details {
+    margin-bottom: 10px;
+}
+
+.item-price,
+.item-stock {
+    font-size: 0.8em; /* Corregido de "o.8em" a "0.8em" */
+    color: #c1bfbf;
+    margin: 2px 0;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.item-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.item-button:hover {
+    background-color: #0056b3;
+}

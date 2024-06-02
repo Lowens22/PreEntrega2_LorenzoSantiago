@@ -1,0 +1,18 @@
+/* ItemList.css */
+
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espacio entre los ítems */
+    justify-content: center; /* Centrar los ítems horizontalmente */
+    padding: 16px;
+    margin: 0 auto; /* Centrar el contenedor en la página */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+.item {
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    max-width: 200px; /* Ancho máximo de los ítems ajustado a 200px */
+    margin-bottom: 16px; /* Espacio inferior entre las filas de ítems */
+}
+
