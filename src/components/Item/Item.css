@@ -1,7 +1,7 @@
 /* Item.css */
 
 .item {
-    border: 1px solid #ddd;
+    border: 1px solid #48e ;
     border-radius: 8px;
     padding: 16px;
     margin: 16px;
@@ -46,16 +46,25 @@
     justify-content: center;
 }
 
-.item-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.item-link{
+    color: #48e;
+    border: 2px solid #48e;
+    padding: 2px 20px;
+    border-radius: 6px;
 }
 
-.item-button:hover {
-    background-color: #0056b3;
+.item-link:hover{
+    animation-name: link-move;
+    animation-duration: 2s;
+}
+
+
+@keyframes link-move {
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(-4px);
+        border-color: #43e;
+    }
 }

@@ -1,34 +1,48 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { getProducts, getProductsByCategory } from '../../../data'
-import ItemList from '../ItemList/ItemList'
-import { useParams } from 'react-router-dom'
+import './ItemListContainer.css';
+import { useEffect, useState } from 'react';
+import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from '../../Config/FireBase';
 
-
-export const ItemListContainer = ({ greeting }) => {    
-
-    const [products, setProducts] = useState([])
-
-    const { categoryId } = useParams()
+export const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
+    const [nameCategory, setNameCategory] = useState('');
+    const { categoryId } = useParams();
 
     useEffect(() => {
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        const itemsRef = collection(db, "items");
+        let q;
 
-        asyncFunc(categoryId) 
-            .then(response => {
-                setProducts(response)
+        if (categoryId != null) {
+            q = query(itemsRef, where("category", "==", categoryId));
+        } else {
+            q = itemsRef;
+        }
+
+        getDocs(q)
+            .then((res) => {
+                const productsData = res.docs.map((doc) => {
+                    return { ...doc.data(), id: doc.id };
+                });
+                setProducts(productsData);
+
+                if (categoryId != null && productsData.length > 0) {
+                    setNameCategory(productsData[0].category);
+                }
             })
-            .catch(error => {
-                console.error(error)
-            })
-    }, [categoryId])
+            .catch((error) => {
+                console.error("Error getting documents: ", error);
+            });
+
+    }, [categoryId]);
 
     return (
-        <div>
-            <h1>{greeting}</h1>
-            <ItemList products={products}/>
+        <div className='item__list--container'>
+            <h2>{categoryId != null ? nameCategory : 'Bienvenido'}</h2>
+            <ItemList products={products} />
         </div>
-    )
-}
+    );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
