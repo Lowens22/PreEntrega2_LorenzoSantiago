@@ -19,6 +19,7 @@ const Register = () => {
         }
     };
 
+
     return (
         <div className='container'>
             <div className="register">
@@ -30,10 +31,10 @@ const Register = () => {
                     </div>
                     <div className="register__form-group">
                         <label htmlFor="password" className="register__label">Password</label>
-                        <input type="password" id="password" className="register__input" placeholder="Enter your password" {...register("password", { required: true })}/>
+                        <input type="password" id="password" className="register__input" minLength={6} placeholder="Enter your password" {...register("password", { required: true })}/>
                     </div>
                     <button type="submit" className="register__button">Register</button>
-                    <p className="register__text">Already have an account? <NavLink to={`/login`}>Register</NavLink></p>
+                    <p className="register__text">Already have an account? <NavLink to={`/login`}>Log In</NavLink></p>
                 </form>
             </div>
         </div>
