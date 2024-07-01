@@ -16,3 +16,15 @@ React
 React Router
 Firebase (para autenticación y base de datos)
 CSS
+
+Uso
+
+Navegación: Los usuarios pueden navegar entre diferentes categorías de productos usando la barra de navegación.
+Ver Detalles de Productos: Al hacer clic en un producto, se pueden ver los detalles del mismo.
+Agregar al Carrito: Los usuarios pueden seleccionar la cantidad de productos y agregarlos al carrito.
+Checkout: Los usuarios pueden proceder al checkout para completar su compra.
+Autenticación: Los usuarios pueden iniciar sesión o registrarse para acceder a funcionalidades adicionales.
+
+
+Contacto
+Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue o contactarme en lorenzosanti4@gmail.com
